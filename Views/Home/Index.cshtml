@@ -1,0 +1,98 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<form class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label col-xs-3" for="inputEmail">Email:</label>
+        <div class="col-xs-9">
+            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-3" for="inputPassword">Password:</label>
+        <div class="col-xs-9">
+            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-3" for="confirmPassword">Confirm Password:</label>
+        <div class="col-xs-9">
+            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-3" for="firstName">First Name:</label>
+        <div class="col-xs-9">
+            <input type="text" class="form-control" id="firstName" placeholder="First Name">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-3" for="lastName">Last Name:</label>
+        <div class="col-xs-9">
+            <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-3" for="phoneNumber">Phone:</label>
+        <div class="col-xs-9">
+            <input type="tel" class="form-control" id="phoneNumber" placeholder="Phone Number">
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label col-xs-3" for="phoneNumber">Shipping </label>
+            <div class="col-xs-9">
+                <input type="number" value="0" class="form-control" id="shipping" placeholder="Phone Number">
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label col-xs-3" for="phoneNumber">Net Price </label>
+            <div class="col-xs-9">
+                <input type="number" class="form-control" id="net" value="0" placeholder="Phone Number">
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label col-xs-3" for="phoneNumber">Clearing Charges</label>
+            <div class="col-xs-9">
+                <input type="number" class="form-control" id="clearing" value="0" placeholder="Phone Number">
+            </div>
+        </div>
+    </div>
+
+
+    <label id="total" class="text-danger"></label>
+
+
+    <div class="form-group">
+        <div class="col-xs-offset-3 col-xs-9">
+            <input type="submit" class="btn btn-primary" value="Submit">
+            <input type="reset" class="btn btn-danger" value="Reset">
+        </div>
+    </div>
+</form>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        var total = 0;
+        $('#total').text(total.toFixed(2));
+
+
+         $("#shipping, #clearing, #net").keyup(function () {
+            total = parseFloat(total) + parseFloat($(this).val());
+            $('#total').text(total.toFixed(2));
+        }); 
+    })
+
+
+</script>
